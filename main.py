@@ -11,13 +11,13 @@ def train_and_evaluate(models, X_train, X_test, y_train, y_test):
     
     for name, model in models.items():
         print(f"\n--- {name} Eğitiliyor ---")
-        # Modeli eğit
+        # Model training
         model.fit(X_train, y_train)
         
-        # Tahmin yap
+        # Prediction
         y_pred = model.predict(X_test)
         
-        # Metrikleri hesapla
+        # Calculate metrics
         acc = accuracy_score(y_test, y_pred)
         report = classification_report(y_test, y_pred)
         
@@ -34,29 +34,29 @@ def train_and_evaluate(models, X_train, X_test, y_train, y_test):
     return results
 
 if __name__ == "__main__":
-    # Veriyi önişlemeden geçir
+    # Data preprocessing
     current_dir = os.path.dirname(os.path.abspath(__file__))
     data_path = os.path.join(current_dir, 'Heart_Disease_Prediction.csv')
     
-    print("Veri önişleme başlıyor...")
+    print("Data preprocessing starts...")
     X_train, X_test, y_train, y_test = preprocess_data(data_path)
     
-    # 3 Farklı Topluluk Öğrenmesi Modeli Tanımla
-    # 1. Bagging örneği: Random Forest
-    # 2. Boosting örneği: AdaBoost
-    # 3. Modern Boosting örneği: XGBoost
+    
+    # 1. Bagging example: Random Forest
+    # 2. Boosting example: AdaBoost
+    # 3. Modern Boosting example: XGBoost
     models = {
         "Random Forest (Bagging)": RandomForestClassifier(n_estimators=100, random_state=42),
         "AdaBoost (Boosting)": AdaBoostClassifier(n_estimators=100, random_state=42),
         "XGBoost (Extreme Gradient Boosting)": XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
     }
     
-    # Modelleri eğit ve sonuçları al
+    # Train models and get results
     all_results = train_and_evaluate(models, X_train, X_test, y_train, y_test)
     
-    # Özet Karşılaştırma
+    # Summary comparison
     print("\n" + "="*30)
-    print("MODEL KARŞILAŞTIRMA ÖZETİ")
+    print("MODEL COMPARISON SUMMARY")
     print("="*30)
     for name, res in all_results.items():
         print(f"{name:40} | Doğruluk: {res['accuracy']:.4f}")
