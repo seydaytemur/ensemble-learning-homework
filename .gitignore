@@ -1,0 +1,17 @@
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated images (Model results)
+*.png
+
+# Environments
+.venv/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/

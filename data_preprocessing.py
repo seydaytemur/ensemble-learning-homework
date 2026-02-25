@@ -15,13 +15,13 @@ def preprocess_data(file_path):
     X = df.drop('Heart Disease', axis=1)
     y = df['Heart Disease']
     
-    # Veriyi eğitim ve test setlerine ayır
+    # test & train split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    # Özellik Ölçeklendirme (Feature Scaling)
-    # Karar ağacı tabanlı modeller (Random Forest, XGBoost vb.) için zorunlu olmasa da
+    # (Feature Scaling)
+    # (Random Forest, XGBoost)
     # best practice olarak ve ileride başka modellerle 
-    # karşılaştırma yapılabilmesi adına standartlaştırma yapıyoruz.
+    # karşılaştırma yapılabilmesi adına standartlaştırma yapmamız gerek
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
