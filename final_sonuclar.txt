@@ -1,0 +1,11 @@
+=== TÜM MODEL VE SENARYO SONUÇLARI ===
+
+       Senaryo         Model  Accuracy  Precision   Recall  F1-Score  CV_Mean
+      Baseline Random Forest  0.759259   0.756173 0.759259  0.755233 0.806025
+      Baseline      AdaBoost  0.870370   0.871914 0.870370  0.868203 0.805708
+      Baseline      Stacking  0.851852   0.855149 0.851852  0.848287 0.838266
+Advanced (PCA) Random Forest  0.888889   0.894542 0.888889  0.886216 0.815222
+Advanced (PCA)      AdaBoost  0.851852   0.855149 0.851852  0.848287 0.764271
+Advanced (PCA)      Stacking  0.888889   0.889223 0.888889  0.887745 0.824419
+
+Not: CV_Mean değeri 5-katlı çapraz doğrulama sonucudur. Hold-out Accuracy ile CV_Mean birbirine yakınsa model genellenebilir demektir.
