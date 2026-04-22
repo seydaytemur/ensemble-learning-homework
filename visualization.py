@@ -3,6 +3,11 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 from sklearn.metrics import confusion_matrix
+import os
+
+def check_visuals_dir():
+    if not os.path.exists('visuals'):
+        os.makedirs('visuals')
 
 def plot_confusion_matrices(results, y_test, suffix=''):
     """Tüm modeller için karmaşıklık matrislerini tek bir panelde çizer."""
@@ -18,7 +23,8 @@ def plot_confusion_matrices(results, y_test, suffix=''):
         axes[i].set_ylabel('Gerçek')
     
     plt.tight_layout()
-    plt.savefig(f'karmasiklik_matrisleri{suffix}.png')
+    check_visuals_dir()
+    plt.savefig(f'visuals/karmasiklik_matrisleri{suffix}.png')
     plt.close()
 
 def plot_feature_importance(models, feature_names, suffix='', top_n=10):
@@ -47,7 +53,8 @@ def plot_feature_importance(models, feature_names, suffix='', top_n=10):
             plt.title(f'{name} - Önem Derecesi / Katsayı Analizi')
             plt.xlabel('Bağıl Önem / Ağırlık')
             plt.tight_layout()
-            plt.savefig(f'ozellik_onemi_{name.lower().replace(" ", "_")}{suffix}.png')
+            check_visuals_dir()
+            plt.savefig(f'visuals/ozellik_onemi_{name.lower().replace(" ", "_")}{suffix}.png')
             plt.close()
             print(f"{name} için özellik önemi görseli oluşturuldu.")
 
@@ -62,7 +69,8 @@ def plot_pca_variance(pca):
     plt.ylabel('Kümülatif Varyans')
     plt.legend()
     plt.grid(True, alpha=0.3)
-    plt.savefig('pca_varyans_analizi.png')
+    check_visuals_dir()
+    plt.savefig('visuals/pca_varyans_analizi.png')
     plt.close()
 
 def plot_metrics_comparison(all_scenario_data):
@@ -73,7 +81,8 @@ def plot_metrics_comparison(all_scenario_data):
     plt.title('Senaryolara Göre Doğruluk (Accuracy) Karşılaştırması')
     plt.ylim(0.6, 1.0)
     plt.grid(axis='y', alpha=0.3)
-    plt.savefig('performans_karsilastirma.png')
+    check_visuals_dir()
+    plt.savefig('visuals/performans_karsilastirma.png')
     plt.close()
 
 def plot_all_metrics(all_scenario_data):
@@ -98,7 +107,8 @@ def plot_all_metrics(all_scenario_data):
                 ax.annotate(f'{p.get_height():.2f}', (p.get_x() + p.get_width() / 2., p.get_height()),
                             ha='center', va='center', xytext=(0, 10), textcoords='offset points', fontsize=9)
 
-    plt.savefig('tum_metrikler_karsilastirma.png')
+    check_visuals_dir()
+    plt.savefig('visuals/tum_metrikler_karsilastirma.png')
     plt.close()
 
 def plot_pca_success_comparison(all_scenario_data):
@@ -120,6 +130,7 @@ def plot_pca_success_comparison(all_scenario_data):
     
     plt.grid(axis='y', linestyle='--', alpha=0.6)
     plt.tight_layout()
-    plt.savefig('pca_basari_analizi.png')
+    check_visuals_dir()
+    plt.savefig('visuals/pca_basari_analizi.png')
     plt.close()
     print("PCA başarı analizi grafiği 'pca_başarı_analizi.png' olarak oluşturuldu.")
