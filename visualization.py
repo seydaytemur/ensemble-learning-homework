@@ -18,7 +18,7 @@ def plot_confusion_matrices(results, y_test, suffix=''):
         axes[i].set_ylabel('Gerçek')
     
     plt.tight_layout()
-    plt.savefig(f'karmaşıklık_matrisleri{suffix}.png')
+    plt.savefig(f'karmasiklik_matrisleri{suffix}.png')
     plt.close()
 
 def plot_feature_importance(models, feature_names, suffix='', top_n=10):
@@ -47,7 +47,7 @@ def plot_feature_importance(models, feature_names, suffix='', top_n=10):
             plt.title(f'{name} - Önem Derecesi / Katsayı Analizi')
             plt.xlabel('Bağıl Önem / Ağırlık')
             plt.tight_layout()
-            plt.savefig(f'özellik_önemi_{name.lower().replace(" ", "_")}{suffix}.png')
+            plt.savefig(f'ozellik_onemi_{name.lower().replace(" ", "_")}{suffix}.png')
             plt.close()
             print(f"{name} için özellik önemi görseli oluşturuldu.")
 
@@ -73,7 +73,7 @@ def plot_metrics_comparison(all_scenario_data):
     plt.title('Senaryolara Göre Doğruluk (Accuracy) Karşılaştırması')
     plt.ylim(0.6, 1.0)
     plt.grid(axis='y', alpha=0.3)
-    plt.savefig('performans_karşılaştırma.png')
+    plt.savefig('performans_karsilastirma.png')
     plt.close()
 
 def plot_all_metrics(all_scenario_data):
@@ -98,7 +98,7 @@ def plot_all_metrics(all_scenario_data):
                 ax.annotate(f'{p.get_height():.2f}', (p.get_x() + p.get_width() / 2., p.get_height()),
                             ha='center', va='center', xytext=(0, 10), textcoords='offset points', fontsize=9)
 
-    plt.savefig('tüm_metrikler_karşılaştırma.png')
+    plt.savefig('tum_metrikler_karsilastirma.png')
     plt.close()
 
 def plot_pca_success_comparison(all_scenario_data):
@@ -120,6 +120,6 @@ def plot_pca_success_comparison(all_scenario_data):
     
     plt.grid(axis='y', linestyle='--', alpha=0.6)
     plt.tight_layout()
-    plt.savefig('pca_başarı_analizi.png')
+    plt.savefig('pca_basari_analizi.png')
     plt.close()
     print("PCA başarı analizi grafiği 'pca_başarı_analizi.png' olarak oluşturuldu.")
