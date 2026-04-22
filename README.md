@@ -26,4 +26,24 @@ Bu proje, "Heart Disease Prediction" veri seti üzerinde farklı Topluluk Öğre
 
 Proje sonunda en yüksek başarıya **%90.74** doğruluk oranı ile **AdaBoost** (PCA sonrası) ulaşmıştır. **Stacking** ve **Random Forest** modelleri de %88.89 performans sergileyerek oldukça güvenilir sonuçlar vermiştir.
 
+![PCA Başarı Analizi](pca_başarı_analizi.png)
+
+## Detaylı Analiz Görselleri
+
+### 1. Performans Karşılaştırması (Tüm Metrikler)
+
+![Metrik Karşılaştırma](tüm_metrikler_karşılaştırma.png)
+
+### 2. PCA Açıklanan Varyans
+
+![PCA Varyans](pca_varyans_analizi.png)
+
+### 3. Hata Matrisleri (Confusion Matrices - Advanced)
+
+![Karmaşıklık Matrisleri](karmaşıklık_matrisleri_advanced.png)
+
+### 4. Öznitelik Önem Dereceleri (Örnek: Random Forest)
+
+![Özellik Önemi](özellik_önemi_random_forest_baseline.png)
+
 Hastalık teşhisinde en belirleyici faktörler olarak **Talasemi (Thal)**, **Büyük Damar Sayısı (Ca)** ve **Göğüs Ağrısı Tipi (CP)** öne çıkmıştır.
